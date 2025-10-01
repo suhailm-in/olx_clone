@@ -5,23 +5,32 @@ import LoginPage from "./Pages/LoginPage";
 import SignupPage from "./Pages/SignupPage";
 import ViewPost from "./Pages/ViewPost";
 import CreatePage from "./Pages/CreatePage";
-import { FireBaseContext } from "./store/FirebaseContext";
-import { auth, db, storage } from "./firebase/Config";
 
+import { useContext, useEffect } from "react";
+import { AuthContext } from "./store/AuthContext";
+
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/Config";
 
 function App() {
+    const { setUser } = useContext(AuthContext);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+        return () => unsubscribe();
+    }, [setUser]);
     return (
-        <FireBaseContext.Provider value={{ auth, db, storage }}>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/signup" element={<SignupPage />} />
-                    <Route path="/viewpost" element={<ViewPost />} />
-                    <Route path="/createpage" element={<CreatePage />} />
-                </Routes>
-            </Router>
-        </FireBaseContext.Provider>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route path="/viewpost" element={<ViewPost />} />
+                <Route path="/createpage" element={<CreatePage />} />
+            </Routes>
+        </Router>
     );
 }
 

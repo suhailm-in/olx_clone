@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext, useState } from "react";
 
 import "./Header.css";
 import OlxLogo from "../../assets/OlxLogo";
@@ -6,42 +6,114 @@ import Search from "../../assets/Search";
 import Arrow from "../../assets/Arrow";
 import SellButton from "../../assets/SellButton";
 import SellButtonPlus from "../../assets/SellButtonPlus";
+
+import { BsChat } from "react-icons/bs";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { AuthContext } from "../../store/AuthContext";
+
 function Header() {
+    // const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const profileImage = "https://i.pravatar.cc/150?img=1"; // Example placeholder
+    const { user } = useContext(AuthContext);
+
     return (
         <div className="headerParentDiv">
             <div className="headerChildDiv">
+                {/* Brand */}
                 <div className="brandName">
-                    <OlxLogo></OlxLogo>
+                    <OlxLogo />
                 </div>
+
+                {/* Location Search */}
                 <div className="placeSearch">
-                    <Search></Search>
+                    <Search />
                     <input type="text" />
-                    <Arrow></Arrow>
+                    <Arrow />
                 </div>
+
+                {/* Product Search */}
                 <div className="productSearch">
                     <div className="input">
                         <input
                             type="text"
-                            placeholder="Find car,mobile phone and more..."
+                            placeholder="Find car, mobile phone and more..."
                         />
                     </div>
                     <div className="searchAction">
-                        <Search color="#ffffff"></Search>
+                        <Search color="#ffffff" />
                     </div>
                 </div>
+
+                {/* Language */}
                 <div className="language">
-                    <span> ENGLISH </span>
-                    <Arrow></Arrow>
-                </div>
-                <div className="loginPage">
-                    <span>Login</span>
-                    <hr />
+                    <span>ENGLISH</span>
+                    <Arrow />
                 </div>
 
+                {/* Conditional Icons */}
+                {user ? (
+                    <>
+                        <button className="icon-btn">
+                            <BsChat size={22} />
+                        </button>
+                        <button className="icon-btn">
+                            <IoMdNotificationsOutline size={22} />
+                        </button>
+
+                        {/* Profile with dropdown */}
+                        <div className="profileWrapper">
+                            <img
+                                src={profileImage}
+                                alt="Profile"
+                                className="profileImage"
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            />
+
+                            {isMenuOpen && (
+                                <div className="dropdownMenu">
+                                    <div className="dropdownHeader">
+                                        <img
+                                            src={profileImage}
+                                            alt="Profile"
+                                            className="dropdownProfileImage"
+                                        />
+                                        <div>
+                                            <h4>{user && user.displayName}</h4>
+                                        </div>
+                                    </div>
+
+                                    <button className="dropdownBtn">
+                                        View & Edit Profile
+                                    </button>
+
+                                    <ul>
+                                        <li>My Ads</li>
+                                        <li>Buy Business Packages</li>
+                                        <li>View Cart</li>
+                                        <li>Bought Packages & Billing</li>
+                                        <li>Become an Elite Buyer</li>
+                                        <li>Help</li>
+                                        <li>Logout</li>
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+                    </>
+                ) : (
+                    <button
+                        className="login-btn"
+                    >
+                        Login
+                    </button>
+                )}
+
+                {/* Sell Button */}
                 <div className="sellMenu">
-                    <SellButton></SellButton>
+                    <SellButton />
                     <div className="sellMenuContent">
-                        <SellButtonPlus></SellButtonPlus>
+                        <SellButtonPlus />
                         <span>SELL</span>
                     </div>
                 </div>
