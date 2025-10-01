@@ -11,12 +11,26 @@ import { BsChat } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { AuthContext } from "../../store/AuthContext";
 
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/Config";
+import { Link } from "react-router-dom";
+
 function Header() {
     // const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const profileImage = "https://i.pravatar.cc/150?img=1"; // Example placeholder
     const { user } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                console.log("User signed out successfully");
+            })
+            .catch((error) => {
+                console.error("Logout error:", error.message);
+            });
+    };
 
     return (
         <div className="headerParentDiv">
@@ -80,7 +94,7 @@ function Header() {
                                             className="dropdownProfileImage"
                                         />
                                         <div>
-                                            <h4>{user && user.displayName}</h4>
+                                            <h4>{user?.displayName}</h4>
                                         </div>
                                     </div>
 
@@ -95,18 +109,14 @@ function Header() {
                                         <li>Bought Packages & Billing</li>
                                         <li>Become an Elite Buyer</li>
                                         <li>Help</li>
-                                        <li>Logout</li>
+                                        <li onClick={handleLogout}>Logout</li>
                                     </ul>
                                 </div>
                             )}
                         </div>
                     </>
                 ) : (
-                    <button
-                        className="login-btn"
-                    >
-                        Login
-                    </button>
+                    <Link to="/login" className="login-btn">Login</Link>
                 )}
 
                 {/* Sell Button */}
