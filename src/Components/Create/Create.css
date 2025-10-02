@@ -1,6 +1,6 @@
 .centerDiv {
   width: 380px;
-  padding: 40px 30px;
+  padding: 40px 30px 40px;
   margin: 0 auto;
   position: absolute;
   top: 50%;
@@ -22,7 +22,7 @@
   box-shadow: 0px 8px 28px rgba(0, 0, 0, 0.18);
 }
 
-.input {
+.creatinput {
   width: 100%;
   padding: 12px 14px;
   margin-bottom: 20px;

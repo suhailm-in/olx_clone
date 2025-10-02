@@ -122,10 +122,10 @@ function Header() {
                 {/* Sell Button */}
                 <div className="sellMenu">
                     <SellButton />
-                    <div className="sellMenuContent">
+                    <Link to="/create" className="sellMenuContent">
                         <SellButtonPlus />
                         <span>SELL</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

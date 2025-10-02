@@ -49,7 +49,7 @@ const Create = () => {
 
                 // Get public URL
                 return supabase.storage
-                    .from("product-images")
+                    .from("olx_uploads")
                     .getPublicUrl(fileName);
             })
             .then(({ data }) => {
@@ -92,7 +92,7 @@ const Create = () => {
     return (
         <>
             <Header />
-            <section>
+            <section className="creatcard">
                 {loading && <Loading />}
                 <div className="centerDiv">
                     <h2>Create New Product</h2>
@@ -101,7 +101,7 @@ const Create = () => {
 
                     <label>Name</label>
                     <input
-                        className="input"
+                        className="input creatinput"
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -109,7 +109,7 @@ const Create = () => {
 
                     <label>Category</label>
                     <input
-                        className="input"
+                        className="input creatinput"
                         type="text"
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
@@ -117,7 +117,7 @@ const Create = () => {
 
                     <label>Price</label>
                     <input
-                        className="input"
+                        className="input creatinput"
                         type="number"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
