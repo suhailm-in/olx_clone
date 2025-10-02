@@ -28,7 +28,7 @@ function App() {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/viewpost" element={<ViewPost />} />
-                <Route path="/createpage" element={<CreatePage />} />
+                <Route path="/create" element={<CreatePage />} />
             </Routes>
         </Router>
     );

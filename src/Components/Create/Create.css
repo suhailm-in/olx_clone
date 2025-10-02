@@ -1,32 +1,73 @@
 .centerDiv {
-    border: 1px solid black;
-    width: max-content;
-    padding: 50px;
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 6px;
-  }
-  .input {
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    outline-color: transparent;
-  }
+  width: 380px;
+  padding: 40px 30px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   
-  .uploadBtn {
-    margin-top: 30px;
-    width: 100%;
-    height: 48px;
-    /* border-color: transparent; */
-    background-color: #002f34;
-    color: whitesmoke;
-    font-weight: 900;
-  }
-  .uploadBtn:hover {
-    background-color: white;
-    color: #002f34;
-    border: 2px solid #002f34;
-  }
-  
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.centerDiv h2{
+  text-align: center;
+}
+
+.centerDiv:hover {
+  box-shadow: 0px 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: #00796b;
+  box-shadow: 0 0 4px rgba(0, 121, 107, 0.3);
+}
+
+.uploadBtn {
+  margin-top: 15px;
+  width: 100%;
+  height: 48px;
+  background-color: #00796b;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.uploadBtn:hover {
+  background-color: #ffffff;
+  color: #00796b;
+  border: 2px solid #00796b;
+}
+
+.msg {
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.msg.success {
+  color: #2e7d32;
+}
+
+.msg.error {
+  color: #d32f2f;
+}
