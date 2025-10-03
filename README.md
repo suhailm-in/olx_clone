@@ -70,7 +70,7 @@ Screenshot_home
 
 <div align="center">
   <img src="screenshots/Screenshot_home.png" alt="Signup Page" width="1280" height="720" />
-  <img src="screenshots/localhost_3000_(iPhone SE).png" alt="Signup Page" width="230" height="667" />
-  <img src="screenshots/localhost_3000_(iPhone SE) (3).png" alt="Signup Page" width="230" height="667" />
-  <img src="screenshots/localhost_3000_(iPhone SE) (2).png" alt="Signup Page" width="230" height="667" />
+  <img src="screenshots/localhost_3000_(iPhone SE).png" alt="Signup Page" width="250" height="667" />
+  <img src="screenshots/localhost_3000_(iPhone SE) (3).png" alt="Signup Page" width="250" height="667" />
+  <img src="screenshots/localhost_3000_(iPhone SE) (2).png" alt="Signup Page" width="250" height="667" />
 </div>
