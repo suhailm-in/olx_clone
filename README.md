@@ -61,3 +61,15 @@ View Products
 - Products are dynamically displayed on the home page.
 
 - Clicking a product shows detailed view with seller information fetched from Firestore.
+
+
+Screenshot_home
+---
+
+## Screenshots
+
+<div align="center">
+  <img src="screenshots/Screenshot_home.png" alt="Signup Page" width="350" />
+  <img src="screenshots/localhost_3000_(iPhone SE).png" alt="Signup Page" width="250" />
+  <img src="screenshots/localhost_3000_(iPhone SE).png" alt="Signup Page" width="250" />
+</div>
