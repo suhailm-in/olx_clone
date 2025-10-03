@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# OLX Clone - React Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![React](https://img.shields.io/badge/React-17.0.2-blue?logo=react)](https://reactjs.org/) 
+[![Firebase](https://img.shields.io/badge/Firebase-9.22.1-orange?logo=firebase)](https://firebase.google.com/) 
+[![Supabase](https://img.shields.io/badge/Supabase-2.0-green?logo=supabase)](https://supabase.com/)  
 
-## Available Scripts
+A fully functional OLX-like web application built with **React**, **Firebase**, and **Supabase**. Users can sign up, log in, create product listings, upload images, and view products. The app supports **Email/Password authentication**, **Google Sign-In**, and dynamic user/product data storage.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Authentication**
+  - Email/Password signup and login
+  - Google Sign-In
+  - Profile updates
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Product Management**
+  - Create new product listings
+  - Upload product images to Supabase storage
+  - Store product details in Firestore
 
-### `npm test`
+- **Dynamic Data**
+  - Fetch and display products
+  - Show seller details for each product
+  - Real-time updates using Firebase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **UI & UX**
+  - Responsive design inspired by OLX
+  - Loading states for async operations
+  - Error and success messages
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend:** React, React Router, CSS
+- **Backend & Database:** Firebase Firestore, Firebase Authentication
+- **Storage:** Supabase Storage (for product images)
+- **Authentication:** Firebase Auth, Google OAuth
+- **Others:** React Icons, Custom Loading Component
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Signup/Login
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Users can register using Email/Password or Google Sign-In.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Upon successful signup, the user profile is saved in Firestore.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create Product
 
-## Learn More
+- Users can add product details: name, category, price, and image.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Images are uploaded to Supabase storage and the product info is saved in Firestore.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+View Products
 
-### Code Splitting
+- Products are dynamically displayed on the home page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Clicking a product shows detailed view with seller information fetched from Firestore.
