@@ -4,6 +4,7 @@ import "./View.css";
 
 import { db } from "../../firebase/Config";
 import { doc, getDoc } from "firebase/firestore";
+import CustomHelmet from "../../includes/CustomHelmet";
 
 function View() {
     const { id } = useParams();
@@ -43,6 +44,12 @@ function View() {
     if (!product) return <p>Product not found.</p>;
 
     return (
+        <>
+        {/* Dynamic Helmet */}
+      <CustomHelmet
+        title={`View | OLX Clone | ${product.name}`}
+        description={`Buy and sell products like ${product.name} easily on OLX Clone`}
+      />
         <div className="viewParentDiv">
             <div className="imageShowDiv">
                 <img src={product.url} alt={product.name} />
@@ -61,6 +68,7 @@ function View() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 export default View;
