@@ -4,7 +4,8 @@ import "./View.css";
 
 import { db } from "../../firebase/Config";
 import { doc, getDoc } from "firebase/firestore";
-import CustomHelmet from "../../includes/CustomHelmet";
+import CustomSEO from "../../includes/CustomSEO";
+import Loading from "../Loading/Loading";
 
 function View() {
     const { id } = useParams();
@@ -40,34 +41,50 @@ function View() {
             .finally(() => setLoading(false));
     }, [id]);
 
-    if (loading) return <p>Loading product...</p>;
+    if (loading) return <Loading />;
     if (!product) return <p>Product not found.</p>;
+
+    const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": product.url,
+    "description": product.category,
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "price": product.price,
+    },
+  };
 
     return (
         <>
-        {/* Dynamic Helmet */}
-      <CustomHelmet
-        title={`View | OLX Clone | ${product.name}`}
-        description={`Buy and sell products like ${product.name} easily on OLX Clone`}
-      />
-        <div className="viewParentDiv">
-            <div className="imageShowDiv">
-                <img src={product.url} alt={product.name} />
-            </div>
-            <div className="rightSection">
-                <div className="productDetails">
-                    <p>&#x20B9; {product.price}</p>
-                    <span>{product.name}</span>
-                    <p>{product.category}</p>
-                    <span>{product.createdAt}</span>
+            <CustomSEO
+                title={`View | OLX Clone | ${product.name}`}
+                description={`Buy and sell ${product.name} easily`}
+                url={window.location.href}
+                image={product.url}
+                type="product"
+                jsonLd={jsonLd}
+            />
+            <div className="viewParentDiv">
+                <div className="imageShowDiv">
+                    <img src={product.url} alt={product.name} />
                 </div>
-                <div className="contactDetails">
-                    <p>Seller Details</p>
-                    <p>{seller ? seller.username : "Loading..."}</p>
-                    <p>{seller ? seller.phone : "Loading..."}</p>
+                <div className="rightSection">
+                    <div className="productDetails">
+                        <p>&#x20B9; {product.price}</p>
+                        <span>{product.name}</span>
+                        <p>{product.category}</p>
+                        <span>{product.createdAt}</span>
+                    </div>
+                    <div className="contactDetails">
+                        <p>Seller Details</p>
+                        <p>{seller?.username || "No name"}</p>
+                        <p>{seller ? seller.phone : "Not available"}</p>
+                    </div>
                 </div>
             </div>
-        </div>
         </>
     );
 }

@@ -1,0 +1,27 @@
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    image: product.url,
+    description: product.category,
+    offers: {
+        "@type": "Offer",
+        priceCurrency: "INR",
+        price: product.price,
+    },
+};
+
+<CustomSEO
+    title={`View | OLX Clone | ${product.name}`}
+    description={`Buy and sell ${product.name} easily`}
+    url={window.location.href}
+    image={product.url}
+    type="product"
+    jsonLd={jsonLd}
+/>;
+
+
+<CustomHelmet
+        title={`View | OLX Clone | ${product.name}`}
+        description={`Buy and sell products like ${product.name} easily on OLX Clone`}
+      />
