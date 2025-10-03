@@ -69,7 +69,7 @@ Screenshot_home
 ## Screenshots
 
 <div align="center">
-  <img src="screenshots/Screenshot_home.png" alt="Signup Page" width="350" />
+  <img src="screenshots/Screenshot_home.png" alt="Signup Page" width="1280" height="720" />
   <img src="screenshots/localhost_3000_(iPhone SE).png" alt="Signup Page" width="250" />
   <img src="screenshots/localhost_3000_(iPhone SE).png" alt="Signup Page" width="250" />
 </div>
