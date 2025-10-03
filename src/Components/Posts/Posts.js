@@ -5,6 +5,7 @@ import "./Post.css";
 import { db } from "../../firebase/Config";
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import R15V3 from "../../assets/Images/R15V3.jpg";
 // import { FireBaseContext } from "../../store/FirebaseContext";
 
 function Posts() {
@@ -63,7 +64,7 @@ function Posts() {
                             <Heart></Heart>
                         </div>
                         <div className="image">
-                            <img src="../../Images/R15V3.jpg" alt="R15V3" />
+                            <img src={R15V3} alt="R15V3" />
                         </div>
                         <div className="content">
                             <p className="rate">&#x20B9; 250000</p>
