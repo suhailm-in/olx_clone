@@ -2,6 +2,8 @@ import React from "react";
 
 import "./Banner.css";
 import Arrow from "../../assets/Arrow";
+import banner from '../../assets/Images/banner-copy.png';
+
 function Banner() {
     return (
         <div className="bannerParentDiv">
@@ -22,7 +24,7 @@ function Banner() {
                     </div>
                 </div>
                 <div className="banner">
-                    <img src="../../Images/banner-copy.png" alt="banner_image" />
+                    <img src={banner} alt="banner_image" />
                 </div>
             </div>
         </div>
