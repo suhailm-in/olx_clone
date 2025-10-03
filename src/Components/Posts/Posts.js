@@ -4,6 +4,7 @@ import Heart from "../../assets/Heart";
 import "./Post.css";
 import { db } from "../../firebase/Config";
 import { collection, getDocs } from "firebase/firestore";
+import { Link } from "react-router-dom";
 // import { FireBaseContext } from "../../store/FirebaseContext";
 
 function Posts() {
@@ -31,7 +32,7 @@ function Posts() {
                 </div>
                 <div className="cards">
                     {products.map((product) => (
-                        <div className="card" key={product.id}>
+                        <Link to={`/view/${product.id}`} className="card" key={product.id}>
                             <div className="favorite">
                                 <Heart />
                             </div>
@@ -48,7 +49,7 @@ function Posts() {
                             <div className="date">
                                 <span>{product.createdAt}</span>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

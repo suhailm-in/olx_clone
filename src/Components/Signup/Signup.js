@@ -9,7 +9,8 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
 } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+// import { collection, addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import Loading from "../../Components/Loading/Loading";
 
 export default function Signup() {
@@ -43,8 +44,7 @@ export default function Signup() {
             })
             .then((user) => {
                 // Save additional user data to Firestore
-                return addDoc(collection(db, "users"), {
-                    uid: user.uid,
+                return setDoc(doc(db, "users", user.uid), {
                     username: username,
                     phone: phone,
                 });
@@ -72,16 +72,16 @@ export default function Signup() {
 
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-            .then(async (result) => {
+            .then((result) => {
                 const user = result.user;
-                // Save user to Firestore if new
-                await addDoc(collection(db, "users"), {
-                    uid: user.uid,
+                // Save user in Firestore
+                return setDoc(doc(db, "users", user.uid), {
                     username: user.displayName,
-                    // email: user.email,
                     phone: user.phoneNumber || "",
-                });
-                setSuccess(`Welcome ${user.displayName}!`);
+                }).then(() => user);
+            })
+            .then((user) => {
+                setSuccess(`Welcome ${user.displayName}! Redirecting...`);
                 setError("");
                 setLoading(false);
                 setTimeout(() => navigate("/login"), 2000);

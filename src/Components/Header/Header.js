@@ -36,9 +36,9 @@ function Header() {
         <div className="headerParentDiv">
             <div className="headerChildDiv">
                 {/* Brand */}
-                <div className="brandName">
+                <Link to="/" className="brandName">
                     <OlxLogo />
-                </div>
+                </Link>
 
                 {/* Location Search */}
                 <div className="placeSearch">
