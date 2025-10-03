@@ -62,8 +62,6 @@ View Products
 
 - Clicking a product shows detailed view with seller information fetched from Firestore.
 
-
-Screenshot_home
 ---
 
 ## Screenshots

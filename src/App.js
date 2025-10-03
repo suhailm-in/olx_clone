@@ -22,7 +22,7 @@ function App() {
         return () => unsubscribe();
     }, [setUser]);
     return (
-        <Router>
+        <Router basename="/olx_clone" >
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<LoginPage />} />
